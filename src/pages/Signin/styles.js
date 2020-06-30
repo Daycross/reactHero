@@ -43,6 +43,11 @@ export const Container = styled.div`
 
     .login a {
         text-decoration: none;
+        transition: 300ms;
+    }
+
+    .login a:hover {
+        opacity: 80%;
     }
 
     #img2 {

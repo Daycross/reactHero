@@ -12,12 +12,12 @@ function Signin() {
                 <img src={logo} alt="logo" />
                 <label htmlFor="user">Faça seu logon</label>
                 <input type="text" id="user" placeholder="Sua ID" />
-                <a className="link1" href="">
+                <a className="link1" href="/home">
                     Entrar
                 </a>
                 <div className="iconBtn">
                     <img id="img2" src={icon} alt="icon" />
-                    <a className="link2" href="">
+                    <a className="link2" href="/register">
                         Não tenho cadastro
                     </a>
                 </div>

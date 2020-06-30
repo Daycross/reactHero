@@ -1,9 +1,12 @@
 import React from 'react';
-
-import Signin from './pages/Signin';
+import Routes from './routes';
 
 function App() {
-    return <Signin />;
+    return (
+        <>
+            <Routes />
+        </>
+    );
 }
 
 export default App;
