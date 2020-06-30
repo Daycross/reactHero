@@ -87,6 +87,7 @@ export const Container = styled.div`
         border: 1px solid rgb(0, 0, 0, 0.1);
         padding: 0.7rem 0.6rem;
         border-radius: 0.4rem;
+        resize: none;
     }
 
     textarea::placeholder {

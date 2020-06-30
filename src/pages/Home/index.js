@@ -3,6 +3,7 @@ import React from 'react';
 import { AiOutlinePoweroff } from 'react-icons/ai';
 import { Container } from './styles';
 import logo from '../../assets/logo.png';
+import api from '../../services/api';
 
 function Home() {
     return (

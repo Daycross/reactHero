@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Container } from './styles';
 import logo from '../../assets/logo.png';
+import api from '../../services/api';
 
 function Register() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [whatsapp, setWhatsapp] = useState('');
+    const [city, setCity] = useState('');
+    const [uf, setUf] = useState('');
+
+    async function handleCreate() {
+        const data = {
+            name,
+            email,
+            whatsapp,
+            city,
+            uf,
+        };
+
+        await api.post('/ongs', data);
+    }
+
     return (
         <Container>
             <div className="priBackground">
@@ -19,23 +38,44 @@ function Register() {
 
                 <div className="rightDiv">
                     <div className="fForm">
-                        <input type="text" placeholder="Nome da ONG" />
-                        <input type="email" placeholder="E-mail" />
-                        <input type="tel" placeholder="WhatsApp" />
+                        <input
+                            type="text"
+                            placeholder="Nome da ONG"
+                            value={name}
+                            onChange={(v) => setName(v.target.value)}
+                        />
+                        <input
+                            type="email"
+                            placeholder="E-mail"
+                            value={email}
+                            onChange={(v) => setEmail(v.target.value)}
+                        />
+                        <input
+                            type="tel"
+                            placeholder="WhatsApp"
+                            value={whatsapp}
+                            onChange={(v) => setWhatsapp(v.target.value)}
+                        />
                     </div>
                     <div className="sForm">
                         <input
                             className="cityInput"
                             type="text"
                             placeholder="Cidade"
+                            value={city}
+                            onChange={(v) => setCity(v.target.value)}
                         />
                         <input
                             className="lInput"
                             type="text"
                             placeholder="UF"
+                            value={uf}
+                            onChange={(v) => setUf(v.target.value)}
                         />
                     </div>
-                    <button type="submit">Cadastrar</button>
+                    <button type="button" onClick={handleCreate}>
+                        Cadastrar
+                    </button>
                 </div>
             </div>
         </Container>

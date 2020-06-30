@@ -41,7 +41,7 @@ export const Container = styled.div`
         margin-top: 2rem;
     }
 
-    .login a {
+    .login a button {
         text-decoration: none;
         transition: 300ms;
     }
