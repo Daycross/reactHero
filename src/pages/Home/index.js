@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { AiOutlinePoweroff } from 'react-icons/ai';
 import { Container } from './styles';
@@ -6,6 +6,22 @@ import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
 function Home() {
+    const [incidents, setIncidents] = useState([]);
+
+    async function handleList() {
+        const idS = localStorage.getItem('saveId');
+
+        const response = await api.get('/profile', {
+            headers: { Authorization: idS },
+        });
+
+        setIncidents(response.data);
+    }
+
+    useEffect(() => {
+        handleList();
+    }, []);
+
     return (
         <Container>
             <div className="principalDiv">
@@ -16,6 +32,16 @@ function Home() {
                     </div>
                     <div>
                         <h2>casos cadastrados</h2>
+                    </div>
+                    <div className="render">
+                        {incidents.map((v) => (
+                            <div className="renderDiv">
+                                <h1>Caso Registrado</h1>
+                                <p>{v.title}</p>
+                                <p>{v.description}</p>
+                                <p>{v.value}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
 

@@ -61,6 +61,20 @@ export const Container = styled.div`
         color: rgb(224, 32, 65);
     }
 
+    .render {
+        border-left: 1px solid rgb(224, 32, 65);
+
+        .renderDiv {
+            family-font: sans-serif;
+            border: 1px solid black;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .renderDiv p {
+        border-left: 1px solid rgb(224, 32, 65);
+    }
+
     .rightDiv {
         display: flex;
         flex-direction: column;

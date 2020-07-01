@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Container } from './styles';
 import logo from '../../assets/logo.png';
@@ -7,6 +8,8 @@ import icon from '../../assets/icon.svg';
 import api from '../../services/api';
 
 function Signin() {
+    const history = useHistory();
+
     const [id, setId] = useState('');
 
     async function handleLogin() {
@@ -14,9 +17,15 @@ function Signin() {
             id,
         };
 
-        const response = await api.post('/sessions', data);
-        console.log(data);
-        console.log(response.data);
+        await api.post('/sessions', data);
+
+        localStorage.setItem('saveId', id);
+
+        setId('');
+
+        alert('Você logou!!');
+
+        history.push('/home');
     }
 
     return (
