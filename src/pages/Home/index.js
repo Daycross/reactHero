@@ -28,7 +28,7 @@ function Home() {
                 <div className="leftDiv">
                     <div className="logoDiv">
                         <img src={logo} alt="logo" />
-                        <h1>Bem vinda, </h1>
+                        <h1>Bem vinda a minha versão de consulta, </h1>
                     </div>
                     <div>
                         <h2>casos cadastrados</h2>
